@@ -1,0 +1,17 @@
+.gradle
+.idea
+*out/
+*target/
+*build/
+
+
+
+Web Calendar/Back to the future
+Web Calendar/GET vs POST
+Web Calendar/Relax
+Web Calendar/What should I do today
+
+*course*.yml
+*course*.yaml
+*lesson*.yml
+*lesson*.yaml
