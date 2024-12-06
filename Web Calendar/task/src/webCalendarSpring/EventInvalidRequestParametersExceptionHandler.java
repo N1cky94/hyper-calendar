@@ -1,5 +1,6 @@
 package webCalendarSpring;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -9,9 +10,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class EventInvalidRequestParametersExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = RuntimeException.class)
-    public ResponseEntity<String> handleInvalidRequestParameter() {
-        System.out.println("Something went wrong - 400");
+    @ExceptionHandler(value = ConstraintViolationException.class)
+    public ResponseEntity<String> handleInvalidRequestParameter(Exception ex) {
+        System.out.println("Something went wrong: " + ex.getMessage());
         return new ResponseEntity<>("", HttpStatusCode.valueOf(400));
     }
 
