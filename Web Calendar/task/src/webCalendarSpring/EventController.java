@@ -21,7 +21,7 @@ public class EventController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Event>> getAllEvents(@RequestParam("start_date") Optional<LocalDate> startDate, @RequestParam("end_date") Optional<LocalDate> endDate) {
+    public ResponseEntity<List<Event>> getAllEvents(@RequestParam("start_time") Optional<LocalDate> startDate, @RequestParam("end_time") Optional<LocalDate> endDate) {
         var events = service.getAllEvents();
 
         if (events.isEmpty()) {

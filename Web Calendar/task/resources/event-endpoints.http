@@ -15,7 +15,7 @@ GET localhost:28852/event/100
 Accept: application/json
 
 ### GET Request Events between two dates
-GET localhost:28852/event?start_date=2020-10-10&end_date=2020-11-20
+GET localhost:28852/event?start_time=2020-10-10&end_time=2020-11-20
 Accept: application/json
 
 ### POST with wrong formed date
