@@ -2,6 +2,10 @@
 GET localhost:28852/event/today
 Accept: application/json
 
+### GET Return all events
+GET localhost:28852/event
+Accept: application/json
+
 ### POST with wrong formed date
 POST localhost:28852/event
 Accept: application/json
