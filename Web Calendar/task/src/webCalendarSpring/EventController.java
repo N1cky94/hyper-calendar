@@ -20,9 +20,11 @@ public class EventController {
         this.service = service;
     }
 
-    @GetMapping("today")
-    public ResponseEntity<List<Event>> getEventsForToday() {
-        return new ResponseEntity<>(new ArrayList<>(), HttpStatusCode.valueOf(200));
+    @GetMapping
+    public ResponseEntity<List<Event>> getAllEvents() {
+        var events = service.getAllEvents();
+
+        return ResponseEntity.ok(events);
     }
 
     @PostMapping
@@ -30,5 +32,10 @@ public class EventController {
         EventCreatedDto result = service.createNewEvent(event);
 
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("today")
+    public ResponseEntity<List<Event>> getEventsForToday() {
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatusCode.valueOf(200));
     }
 }
