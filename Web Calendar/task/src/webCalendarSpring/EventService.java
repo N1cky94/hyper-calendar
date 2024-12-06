@@ -28,6 +28,10 @@ public class EventService {
         return eventRepo.findByDate(today);
     }
 
+    public List<Event> getEventsBetweenDates(DateRange range) {
+        return eventRepo.findByDateBetween(range.start(), range.end());
+    }
+
     public Event getEventById(Integer id) {
         return eventRepo.findById(id)
                 .orElseThrow(

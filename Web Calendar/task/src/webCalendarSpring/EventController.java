@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -34,6 +35,13 @@ public class EventController {
         var event = service.getEventById(id);
 
         return ResponseEntity.ok(event);
+    }
+
+    @GetMapping({"{start}&{end}"})
+    public ResponseEntity<List<Event>> getEventsBetweenDates(@PathVariable LocalDate start, @PathVariable LocalDate end) {
+        var events = service.getEventsBetweenDates(new DateRange(start, end));
+
+        return ResponseEntity.ok(events);
     }
 
     @PostMapping
