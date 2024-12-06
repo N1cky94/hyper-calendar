@@ -4,6 +4,8 @@
 *target/
 *build/
 
+*.db
+
 Web Calendar/Back to the future
 Web Calendar/GET vs POST
 Web Calendar/Relax
