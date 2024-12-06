@@ -34,4 +34,10 @@ public class EventService {
                         () -> new EventNotFoundException("Event with ID: %d not found".formatted(id))
                 );
     }
+
+    public Event removeEventById(Integer id) {
+        var removedEvent = getEventById(id);
+        eventRepo.delete(removedEvent);
+        return removedEvent;
+    }
 }

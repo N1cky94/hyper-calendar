@@ -43,6 +43,13 @@ public class EventController {
         return ResponseEntity.ok(result);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Event> deleteEvent(@PathVariable Integer id) {
+        var event = service.removeEventById(id);
+
+        return ResponseEntity.ok(event);
+    }
+
     @GetMapping("today")
     public ResponseEntity<List<Event>> getEventsForToday() {
         var events = service.getEventsForToday();
