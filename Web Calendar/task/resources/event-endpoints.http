@@ -15,7 +15,8 @@ GET localhost:28852/event/100
 Accept: application/json
 
 ### GET Request Events between two dates
-GET localhost:28852/event?startDate=2020-10-10&endDate=2020-11-20
+GET localhost:28852/event?start_date=2020-10-10&end_date=2020-11-20
+Accept: application/json
 
 ### POST with wrong formed date
 POST localhost:28852/event
@@ -53,6 +54,36 @@ Content-Type: application/json
 {
   "event": "Video conference",
   "date": "2020-11-15"
+}
+
+### POST with Correct request
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+  "event": "Video conference",
+  "date": "2020-11-17"
+}
+
+### POST with Correct request
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+  "event": "Video conference",
+  "date": "2020-11-20"
+}
+
+### POST with Correct request
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+  "event": "Video conference",
+  "date": "2020-11-21"
 }
 
 
