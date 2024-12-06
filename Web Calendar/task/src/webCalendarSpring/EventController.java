@@ -29,6 +29,13 @@ public class EventController {
         return ResponseEntity.ok(events);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Event> getEventById(@PathVariable Integer id) {
+        var event = service.getEventById(id);
+
+        return ResponseEntity.ok(event);
+    }
+
     @PostMapping
     public ResponseEntity<EventCreatedDto> createNewEvent(@RequestBody @Valid CreateEventCommand event, BindingResult bResult) {
         EventCreatedDto result = service.createNewEvent(event);

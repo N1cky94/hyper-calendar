@@ -27,4 +27,11 @@ public class EventService {
         LocalDate today = LocalDate.now();
         return eventRepo.findByDate(today);
     }
+
+    public Event getEventById(Integer id) {
+        return eventRepo.findById(id)
+                .orElseThrow(
+                        () -> new EventNotFoundException("Event with ID: %d not found".formatted(id))
+                );
+    }
 }

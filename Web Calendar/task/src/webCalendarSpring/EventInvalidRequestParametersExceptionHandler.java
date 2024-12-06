@@ -13,10 +13,22 @@ public class EventInvalidRequestParametersExceptionHandler extends ResponseEntit
     @ExceptionHandler(value = ConstraintViolationException.class)
     public ResponseEntity<String> handleInvalidRequestParameter(Exception ex) {
         System.out.println("Something went wrong: " + ex.getMessage());
-        return new ResponseEntity<>("", HttpStatusCode.valueOf(400));
+        return new ResponseEntity<>(
+                "",
+                HttpStatusCode.valueOf(400)
+        );
     }
 
-    public record InvalidParameterExceptionDto() {
+    @ExceptionHandler(value = EventNotFoundException.class)
+    public ResponseEntity<ExceptionHandlerResponseDto> handleEventNotFound(Exception ex) {
+        System.out.println("Something went wrong: " + ex.getMessage());
+        return new ResponseEntity<>(
+                new ExceptionHandlerResponseDto("The event doesn't exist!"),
+                HttpStatusCode.valueOf(404)
+        );
+    }
+
+    public record ExceptionHandlerResponseDto(String message) {
 
     }
 
