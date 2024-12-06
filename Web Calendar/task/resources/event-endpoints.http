@@ -6,6 +6,17 @@ Accept: application/json
 GET localhost:28852/event
 Accept: application/json
 
+### GET Return an event with specific ID
+GET localhost:28852/event/1
+Accept: application/json
+
+### GET Request with wrong ID
+GET localhost:28852/event/100
+Accept: application/json
+
+### GET Request Events between two dates
+GET localhost:28852/event?startDate=2020-10-10&endDate=2020-11-20
+
 ### POST with wrong formed date
 POST localhost:28852/event
 Accept: application/json
@@ -43,3 +54,12 @@ Content-Type: application/json
   "event": "Video conference",
   "date": "2020-11-15"
 }
+
+
+### DELETE by ID
+DELETE localhost:28852/event/1
+Accept: application/json
+
+### DELETE by ID with wrong ID
+DELETE localhost:28852/event/100
+Accept: application/json
