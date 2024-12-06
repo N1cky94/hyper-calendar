@@ -2,16 +2,17 @@ package webCalendarSpring;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class EventService {
-    private List<Event> listOfEvents = new ArrayList<>();
+    private final EventRepository eventRepo;
 
-    public EventCreatedDto createNewEvent(Event event) {
-        listOfEvents.add(event);
+    public EventService(EventRepository eventRepo) {
+        this.eventRepo = eventRepo;
+    }
 
-        return EventCreatedDto.from(event);
+    public EventCreatedDto createNewEvent(CreateEventCommand eventCommand) {
+        Event newEvent = eventCommand.toEvent();
+        eventRepo.save(newEvent);
+        return EventCreatedDto.from(newEvent);
     }
 }

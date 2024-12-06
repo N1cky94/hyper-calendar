@@ -26,7 +26,7 @@ public class EventController {
     }
 
     @PostMapping
-    public ResponseEntity<EventCreatedDto> createNewEvent(@RequestBody @Valid Event event, BindingResult bResult) {
+    public ResponseEntity<EventCreatedDto> createNewEvent(@RequestBody @Valid CreateEventCommand event, BindingResult bResult) {
         EventCreatedDto result = service.createNewEvent(event);
 
         return ResponseEntity.ok(result);
