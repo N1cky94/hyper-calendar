@@ -1,13 +1,11 @@
 package webCalendarSpring;
 
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,6 +22,10 @@ public class EventController {
     public ResponseEntity<List<Event>> getAllEvents() {
         var events = service.getAllEvents();
 
+        if (events.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+
         return ResponseEntity.ok(events);
     }
 
@@ -36,6 +38,8 @@ public class EventController {
 
     @GetMapping("today")
     public ResponseEntity<List<Event>> getEventsForToday() {
-        return new ResponseEntity<>(new ArrayList<>(), HttpStatusCode.valueOf(200));
+        var events = service.getEventsForToday();
+
+        return ResponseEntity.ok(events);
     }
 }

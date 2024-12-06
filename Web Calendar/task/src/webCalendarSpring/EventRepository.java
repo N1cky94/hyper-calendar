@@ -2,6 +2,9 @@ package webCalendarSpring;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EventRepository extends JpaRepository<Event, Integer> {
+import java.time.LocalDate;
+import java.util.List;
 
+public interface EventRepository extends JpaRepository<Event, Integer> {
+    List<Event> findByDate(LocalDate date);
 }

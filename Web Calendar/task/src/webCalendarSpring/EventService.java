@@ -22,4 +22,9 @@ public class EventService {
     public List<Event> getAllEvents() {
         return eventRepo.findAll();
     }
+
+    public List<Event> getEventsForToday() {
+        LocalDate today = LocalDate.now();
+        return eventRepo.findByDate(today);
+    }
 }
