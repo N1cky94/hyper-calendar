@@ -1,3 +1,41 @@
 ### GET Today's Events
 GET localhost:28852/event/today
 Accept: application/json
+
+### POST with wrong formed date
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+  "event": "Video conference",
+  "date": "2020/11/15"
+}
+
+### POST with missing event name field
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+  "date": "2020/11/15"
+}
+
+### POST with missing date field
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+    "event": "Video conference"
+}
+
+### POST with Correct request
+POST localhost:28852/event
+Accept: application/json
+Content-Type: application/json
+
+{
+  "event": "Video conference",
+  "date": "2020-11-15"
+}
