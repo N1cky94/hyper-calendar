@@ -41,7 +41,7 @@ public class EventService {
 
     public Event removeEventById(Integer id) {
         var removedEvent = getEventById(id);
-        eventRepo.delete(removedEvent);
+        eventRepo.deleteById(id);
         return removedEvent;
     }
 }
